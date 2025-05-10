@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_USER: ${APP_USER}
+        APP_UID: ${UID}
+        APP_GID: ${GID}
+    volumes:
+      - .:/app
+      - bundle_cache:/usr/local/bundle
+    environment:
+      - BUNDLE_PATH=/usr/local/bundle
+      - DB_HOST=db
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "3000:3000"
+    command: bash -c "bin/rails server --pid /tmp/server.pid -b 0.0.0.0 -p 3000"
+    depends_on:
+      - db
+    user: "${UID}:${GID}"
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  bundle_cache:
+  pgdata:
+
+networks:
+  default:
+    name: cursonic_net
