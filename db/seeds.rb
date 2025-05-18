@@ -7,3 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+User.create!(name: "Admin", email: "admin@cursonic.com", password: "senha123", admin: true)
+
+5.times do |i|
+  Course.create!(
+    title: "Curso #{i + 1}",
+    description: "Descrição do curso #{i + 1}",
+    slug: "curso-#{i + 1}",
+    published: true
+  )
+end

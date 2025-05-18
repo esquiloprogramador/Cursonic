@@ -3,12 +3,13 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: <%= ENV.fetch('DB_HOST', 'localhost') %>
-  database: <%= ENV['DB_NAME'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  username: <%= ENV.fetch('DB_USERNAME', 'db_user') %>
+  password: <%= ENV.fetch('DB_PASSWORD', 'paoidapa') %>
 
 development:
   <<: *default
+  database: <%= ENV.fetch('DB_NAME', 'cursonic_db') %>
 
 test:
   <<: *default
+  database: teste_db_test

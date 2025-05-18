@@ -30,6 +30,9 @@ db-create:
 db-migrate:
 	$(DC) run --rm $(APP_SERVICE) rails db:migrate
 
+db-seed:
+	$(DC) run --rm $(APP_SERVICE) rails db:seed
+
 console:
 	$(DC) run --rm $(APP_SERVICE) rails console
 
