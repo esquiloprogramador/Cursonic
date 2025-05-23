@@ -1,3 +1,13 @@
 {
-    "makefile.configureOnOpen": false
+	"editor.insertSpaces": false,
+	"[ruby]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true,
+		"editor.tabSize": 4,
+		"editor.insertSpaces": false
+	},
+	"ruby.lint": {
+		"rubocop": true
+	},
+	"makefile.configureOnOpen": true
 }

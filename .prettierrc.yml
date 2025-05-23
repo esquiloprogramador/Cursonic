@@ -1,0 +1,11 @@
+tabWidth: 1
+semi: false
+singleQuote: true
+trailingComma: "none"
+IndentationStyle: "tabs"
+
+rubyArrayLiteral: true
+rubyHashLabel: true
+rubyModifier: true
+rubySingleQuote: true
+rubyToProc: false
