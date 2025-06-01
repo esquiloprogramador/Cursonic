@@ -3,5 +3,5 @@ class Course < ApplicationRecord
 	has_many :enrollments, dependent: :destroy
 	has_many :users, through: :enrollments
 
-	validates :title, :slug, presence: true
+	validates :title, :description, :slug, presence: true
 end
