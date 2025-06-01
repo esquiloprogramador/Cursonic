@@ -41,3 +41,6 @@ test:
 
 sh:
 	$(DC) run --rm $(APP_SERVICE) bash
+
+vue-create:
+	$(DC) run --rm vue-create npx create-vue@latest
