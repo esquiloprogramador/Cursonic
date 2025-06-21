@@ -7,7 +7,7 @@ class Api::V1::CoursesController < ApplicationController
 	end
 
 	def show
-		render json: @course
+		render json: @course.as_json(include: :lessons)
 	end
 
 	def create

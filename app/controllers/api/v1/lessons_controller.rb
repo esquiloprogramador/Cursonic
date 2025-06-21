@@ -8,8 +8,9 @@ class Api::V1::LessonsController < ApplicationController
 	end
 
 	def show
+		# render json: @course.as_json(include: :lessons)
 		lesson = @course.lessons.find(params[:id])
-		render json: lesson
+		render json: lesson.as_json(include: [:comments, :materials])
 	end
 
 	def create

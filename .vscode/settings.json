@@ -3,11 +3,22 @@
 	"[ruby]": {
 		// "editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.formatOnSave": true,
-		"editor.tabSize": 4,
+		"editor.tabSize": 3,
 		"editor.insertSpaces": false
 	},
 	"ruby.lint": {
 		"rubocop": true
 	},
-	"makefile.configureOnOpen": true
+	"makefile.configureOnOpen": true,
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		"tsconfig.json": "tsconfig.*.json, env.d.ts",
+		"vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
+		"package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .oxlint*, oxlint*, .prettier*, prettier*, .editorconfig"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit"
+	},
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
 }
