@@ -11,8 +11,10 @@
 		<div v-else>
 			<ul class="grid gap-4">
 				<li v-for="course in courses" :key="course.id" class="bg-white rounded-xl p-4 shadow">
-					<h3 class="text-lg font-semibold">{{ course.title }}</h3>
-					<p class="text-sm text-gray-600">{{ course.description }}</p>
+					<router-link :to="`/cursos/${course.id}`">
+						<h3 class="text-lg font-semibold">{{ course.title }}</h3>
+						<p class="text-sm text-gray-600">{{ course.description }}</p>
+					</router-link>
 				</li>
 			</ul>
 		</div>

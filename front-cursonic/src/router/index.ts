@@ -6,6 +6,10 @@ import AppLayout from '@/layouts/AppLayout.vue';
 
 import ListCourses from '@/views/Courses/ListCourses.vue';
 import NewCourse from '@/views/Courses/NewCourse.vue';
+import ShowCourse from '@/views/Courses/ShowCourse.vue';
+
+import NewLesson from '@/views/Lessons/NewLesson.vue';
+import ShowLesson from '@/views/Lessons/ShowLesson.vue';
 
 const routes = [
 	{
@@ -24,13 +28,28 @@ const routes = [
 		children: [
 			{
 				path: 'cursos',
-				name: 'cursos',
+				name: 'courses',
 				component: ListCourses,
 			},
 			{
 				path: 'cursos/novo',
-				name: 'novo-curso',
+				name: 'new-course',
 				component: NewCourse,
+			},
+			{
+				path: 'cursos/:course_id',
+				name: 'show-course',
+				component: ShowCourse,
+			},
+			{
+				path: 'cursos/:course_id/aulas/nova',
+				name: 'new-lesson',
+				component: NewLesson,
+			},
+			{
+				path: 'cursos/:course_id/aulas/:lesson_id',
+				name: 'show-lesson',
+				component: ShowLesson,
 			},
 		],
 	},
